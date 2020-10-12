@@ -3,7 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-#Some debug/gameplay statements have been commented out, but left in.
+#Some debug/gameplay statements have been made comments, but left in.
 
 class Dealer:
     
