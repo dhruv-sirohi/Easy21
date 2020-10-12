@@ -5,29 +5,21 @@ This script uses the NumPy library to work with Q-value data about the environme
 
 Performance seems to level off at a ~50% win rate after about 1 million games of training, although the win rate is only 1.2% lower after 100,000 games. Performance increases the most over the first 1000 games, reaching ~42.4% as the agent determines the majority of Q-values through experience.
 
-Surface Plots:
-
-This is the Q-function after:
-
-100 games:
+## Surface Plots:
 
 ![Q-function after 100 games](https://github.com/dhruv-sirohi/Easy21/blob/main/Surface%20Plots/Q_surface_100.png)
 
-The Q value for a few states has been initialized to 1, because the agent happened to win in the few games it played there. This value is often not representative of the Q value after further training, as the agent plays more games from each state and determines a more accurate Q-value.
-
-1000 games:
+After 100 games, the Q value for a few states has been initialized to 1, because the agent happened to win in the few games it played there. This value is often not representative of the Q value after further training, as the agent plays more games from each state and determines a more accurate Q-value.
 
 ![Alt text](https://github.com/dhruv-sirohi/Easy21/blob/main/Surface%20Plots/Q_surface_1000.png)
 
-Here we see that most states have now been visited, but since most of them are initialized to 1 or -1, they likely have not been visited many times.
+After the agent has played 1000 games, we see that most states have now been visited, but since most of them are initialized to 1 or -1, they likely have not been visited many times.
 
 10,000 games:
 
 ![Alt text](https://github.com/dhruv-sirohi/Easy21/blob/main/Surface%20Plots/Q_surface_10000.png)
 
-Now, we begin to see a pattern emerge, as the Q value for favorable states tends towards 1 as the player's total reaches 21. There's a large spike for the states in which the player has a total of ~16+. This is likely because the dealer only hits until their total is 17. There also seems to be a trend downwards as the dealer's initial card value increases. This may be representative of them having a lesser chance of going bust by getting a large red card, while also being able to get close to blackjack with only 1-2 cards.
-
-1,000,000 games:
+After 10,000 games we begin to see a pattern emerge, as the Q value for favorable states tends towards 1 as the player's total reaches 21. There's a large spike for the states in which the player has a total of ~16+. This is likely because the dealer only hits until their total is 17. There also seems to be a trend downwards as the dealer's initial card value increases. This may be representative of them having a lesser chance of going bust by getting a large red card, while also being able to get close to blackjack with only 1-2 cards.
 
 ![Alt text](https://github.com/dhruv-sirohi/Easy21/blob/main/Surface%20Plots/Q_surface_1000000.png)
 
