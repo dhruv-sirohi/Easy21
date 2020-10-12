@@ -26,7 +26,9 @@ After 10,000 games we begin to see a pattern emerge, as the Q value for favorabl
 This pattern is further consolidated after 1 million games, with a smooth trend emerging both across the states in which the player has different totals, as well as the states in which the dealer has different totals. 
 
 
-Rules (from the Assignment handout):
+## Rules 
+
+These rules can be found in the Easy21 Assignment Handout available at: https://www.davidsilver.uk/wp-content/uploads/2020/03/Easy21-Johannes.pdf
 
 The game is played with an infinite deck of cards (i.e. cards are sampled with replacement)
 
@@ -47,5 +49,3 @@ The game is played with an infinite deck of cards (i.e. cards are sampled with r
 • If the player’s sum exceeds 21, or becomes less than 1, then they “go bust” and loses the game (reward -1)
 
 • If the player sticks then the dealer starts taking turns. The dealer always sticks on any sum of 17 or greater, and hits otherwise. If the dealer goes bust, then the player wins; otherwise, the outcome – win (reward +1), lose (reward -1), or draw (reward 0) – is the player with the largest total wins.
-
-The assignment handout can be found at: https://www.davidsilver.uk/wp-content/uploads/2020/03/Easy21-Johannes.pdf
