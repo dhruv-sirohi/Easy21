@@ -3,8 +3,11 @@ from mpl_toolkits.mplot3d import Axes3D
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-#Some debug/gameplay statements have been made comments, but left in.
+#Some debug/gameplay statements have been made comments, but left in
+#This code can be modified to be interactive (user plays against Dealer), in which case the print statements are useful
 
+#Defines dealer class
+#The only dealer action is updating their total after picking up a card
 class Dealer:
     
     def __init__(self,total):
@@ -14,8 +17,11 @@ class Dealer:
         self.total = self.total + new_total
         #print("Dealer total is now: ", self.total)
 
+#Defines Player class
+#The player can either stick or hit
+#Past states and rewards are stored for training
+#A Monte Carlo algorithm is used for agent training
 class Player:
-    
     def __init__(self,total, Q_matrix, past_states):
         self.total = total
         self.Q_matrix = Q_matrix
@@ -29,7 +35,7 @@ class Player:
         self.past_states.append(new_state)
         #print("Player total is now: ", self.total)
 
-
+#card dealing function
 def deal_card():
     one_in_three = random.randint(0,2)
     ##print("random chance: ", one_in_three)
@@ -42,22 +48,23 @@ def deal_card():
         #print("picked up: ", total)
         return total
 
+#custom black card dealing function for initial move
 def deal_black():
     total = random.randint(1,10)
     ##print("picked up: ", total)
     return total
 
+#updates state based on new cards dealt
 def state_update(dealer,player,who_acts):
-    #0 if player, 1 if dealer
+    #who_acts = 0 if player, 1 if dealer
     #state = [player total, dealer card]
     
+    #hard coded logic for dealer
     if (who_acts):
         #dealer acts
         if(dealer.total < 0):
             ##print("Bust!")
             return (True,True)
-            
-            #exit()
             
         if dealer.total < 17:
             #dealer hits
@@ -66,14 +73,14 @@ def state_update(dealer,player,who_acts):
             ##print("dealer has: ",dealer.total)
             return (False,False)
             
-            #exit()
         else:
             return (True,True)
-            #exit()
+            
             
     else:
-        
         #player acts
+        
+        #10's place digit indexes palyer 
         s = dealer.total - 1 + 10 * (player.total)
         q = player.Q_matrix
         #Determine the q values for sticking/hitting
